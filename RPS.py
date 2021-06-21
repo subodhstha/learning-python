@@ -1,5 +1,6 @@
 import random
 NO_GAMES = 3
+
 def main():
     print_welcome()
     score = 0
@@ -10,6 +11,7 @@ def main():
         announce_result(ai_move,result)
         score += out_come_score(result)
     print('your score', score)
+
 def print_welcome():
     print('Welcome to Rock Paper Scissors')
     print('You will play '+str(NO_GAMES)+' games against the AI')
@@ -27,12 +29,14 @@ def get_ai_move():
         return "paper"
     else:
         return "scissors"
+
 def get_human_move():
     while True:
         choice = input("what do you want to play ")
         if valid_choice(choice):
             return choice
-        print("The input is invalid choice")   
+        print("The input is invalid choice")
+
 def valid_choice(choice):
     if choice == "rock":
         return True
@@ -42,6 +46,7 @@ def valid_choice(choice):
         return True
     else:
         return False
+
 def out_come_result(ai_move,human_move):
     if ai_move == human_move:
         return "tie"
@@ -57,12 +62,14 @@ def out_come_result(ai_move,human_move):
         if human_move == "rock":
             return "ai"
         return "human"
+
 def out_come_score(result):
     if result == "human":
         return +1
     if result == "ai":
         return -1
     return 0
+    
 def announce_result(ai_move, result):
     print('The AI plays: ' + ai_move)
     print('The winner is: ' + result)
