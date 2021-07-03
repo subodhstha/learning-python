@@ -1,4 +1,4 @@
-import nltk
+import nltk.sentiment
 analyzer = nltk.sentiment.SentimentIntensityAnalyzer()
 def main():
     while True:
@@ -11,15 +11,15 @@ def main():
 
 def get_reaction(score):
     if score > 0.5:
-        return ""
+        return "😍"
     if score > 0:
-        return ""
+        return "🥰"
     if score == 0.5:
-        return ""
+        return "🙂"
     if score < -0.5:
-        return ""
+        return "😢"
     if score < 0.5:
-        return ""
+        return "😢"
 
 def get_sentiment(user_text):
     scores = analyzer.polarity_scores(user_text)
