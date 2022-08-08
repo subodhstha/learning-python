@@ -16,7 +16,7 @@ def print_welcome():
     print('Welcome to Rock Paper Scissors')
     print('You will play '+str(NO_GAMES)+' games against the AI')
     print('rock beats scissors')
-    print('scissors beats paper')
+    print('scissor beats paper')
     print('paper beats rock')
     print('----------------------------------------------')
     print('')
@@ -28,7 +28,7 @@ def get_ai_move():
     if value ==2:
         return "paper"
     else:
-        return "scissors"
+        return "scissor"
 
 def get_human_move():
     while True:
@@ -42,7 +42,7 @@ def valid_choice(choice):
         return True
     if choice == "paper":
         return True
-    if choice == "scissors":
+    if choice == "scissor":
         return True
     else:
         return False
@@ -51,7 +51,7 @@ def out_come_result(ai_move,human_move):
     if ai_move == human_move:
         return "tie"
     if ai_move == "rock":
-        if human_move == "scissors":
+        if human_move == "scissor":
             return "ai"
         return "human"
     if ai_move == "scissor":

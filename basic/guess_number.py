@@ -10,6 +10,6 @@ def main():
             print("The number you guess is low.")
         print("")
         guess = int(input("Enter the new guess "))
-    print("Congralution you guess the correct number" + str(guess)  )
+    print("Congratulation you guess the correct number " + str(guess)  )
 if __name__ == '__main__':
     main()
