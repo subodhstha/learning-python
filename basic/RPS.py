@@ -28,7 +28,7 @@ def get_ai_move():
     if value ==2:
         return "paper"
     else:
-        return "scissor"
+        return "scissors"
 
 def get_human_move():
     while True:
@@ -42,7 +42,7 @@ def valid_choice(choice):
         return True
     if choice == "paper":
         return True
-    if choice == "scissor":
+    if choice == "scissors":
         return True
     else:
         return False
@@ -51,7 +51,7 @@ def out_come_result(ai_move,human_move):
     if ai_move == human_move:
         return "tie"
     if ai_move == "rock":
-        if human_move == "scissor":
+        if human_move == "scissors":
             return "ai"
         return "human"
     if ai_move == "scissor":
