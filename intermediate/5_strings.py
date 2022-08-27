@@ -33,6 +33,40 @@
 # print(string4.replace("world", "Nepal"))
 
 
-string5 = "how are you doing?"
-list1 = string5.split()
-print(list1)
+# string5 = "how are you doing?"
+# list1 = string5.split()
+# string5 = "how,are,you,doing?"
+# list1 = string5.split(",")
+# new_string = " ".join(list1)
+# print(new_string)
+
+# from timeit import default_timer as timer
+
+# list2 = ["a"] * 10000
+# print(list2)
+
+# # bad
+# start = timer()
+# string6 = ""
+# for i in list2:
+#     string6 += i
+# stop = timer()
+# print(stop-start)
+# # print(string6)
+
+# # good
+# start = timer()
+# string7 = "".join(list2)
+# stop = timer()
+# print(stop-start)
+# # print(string7)
+
+
+# var = "Tom"
+# string8 = "the variable is %s" % var
+var = 2.168464154
+var2 = 49
+# string8 = "the variable is %.3f" % var
+# string8 = "the variable is {:.2f} and {}.".format(var,var2)
+string8 = f"the variable is {var*2} and {var2}"
+print(string8)
