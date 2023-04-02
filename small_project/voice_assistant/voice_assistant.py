@@ -16,7 +16,7 @@ import winshell
 import json
 
 
-assname = "wednesday"
+assname = "Wick! John Wick"
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -60,6 +60,7 @@ def wish():
         talk("Good Evening Sir !") 
     talk("I am your Assistant")
     talk(assname)
+    talk('How can I help you?')
 
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -73,8 +74,13 @@ def sendEmail(to, content):
 
 def run_john():
     command = take_command().lower()
-    if 'hey' in command:
+    if 'hey' or 'hello' in command:
         wish()
+        
+    elif 'how are you' in command:
+        talk('I am fine.')
+        talk('What about you.')
+        
     elif 'play' in command:
         song = command.replace('play', '')
         talk('playing' + song)
@@ -112,27 +118,28 @@ def run_john():
     elif 'open google' in command:
             talk("Here you go to Google\n")
             webbrowser.open("google.com")
+            
     elif "what's your name" in command or "What is your name" in command:
-            talk("My friends call me")
-            talk(assname)
-            print("My friends call me", assname)
+        talk("My friends call me")
+        talk(assname)
+        print("My friends call me", assname)
             
     elif "who made you" in command or "who created you" in command:
-            talk("I have been created by useless person.")
+        talk("I have been created by useless person.")
             
     elif "calculate" in command:
-            app_id = "Wolframalpha api id"
-            client = wolframalpha.Client(app_id)
-            indx = command.lower().split().index('calculate')
-            command = command.split()[indx + 1:]
-            res = client.command(' '.join(command))
-            answer = next(res.results).text
-            print("The answer is " + answer)
-            talk("The answer is " + answer)
+        app_id = "Wolframalpha api id"
+        client = wolframalpha.Client(app_id)
+        indx = command.lower().split().index('calculate')
+        command = command.split()[indx + 1:]
+        res = client.command(' '.join(command))
+        answer = next(res.results).text
+        print("The answer is " + answer)
+        talk("The answer is " + answer)
             
     elif 'open google' in command:
-            talk("Here you go to Google\n")
-            webbrowser.open("google.com")
+        talk("Here you go to Google\n")
+        webbrowser.open("google.com")
     
     elif 'search' in command:
         command = command.replace("search", "")
@@ -143,11 +150,9 @@ def run_john():
             jsonObj = urlopen('''https://newsapi.org/v2/everything?q=bitcoin&from=2023-03-01&sortBy=publishedAt&apiKey=API_KEY''')
             data = json.load(jsonObj)
             i = 1
-             
             talk('here are some top news from the times of india')
              
             for item in data['articles']:
-                 
                 print(str(i) + '. ' + item['title'] + '\n')
                 print(item['description'] + '\n')
                 talk(str(i) + '. ' + item['title'] + '\n')
@@ -160,11 +165,11 @@ def run_john():
         talk("Recycle Bin Recycled")
         
     elif "where is" in command:
-            command = command.replace("where is", "")
-            location = command
-            talk("User asked to Locate")
-            talk(location)
-            webbrowser.open("https://www.google.com/maps" + location + "")
+        command = command.replace("where is", "")
+        location = command
+        talk("User asked to Locate")
+        talk(location)
+        webbrowser.open("https://www.google.com/maps" + location + "")
     else:
         talk('Please say again.')
     
